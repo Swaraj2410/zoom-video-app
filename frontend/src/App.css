@@ -1,0 +1,203 @@
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.landingPageContainer {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.landingPageContainer::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -250px;
+  right: -100px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.landingPageContainer nav {
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.landingPageContainer nav h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.landingPageContainer nav .navlist {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.landingPageContainer nav .navlist p {
+  cursor: pointer;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.landingPageContainer nav .navlist p:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.landingPageContainer nav .navlist div[role='button'] {
+  background: white;
+  color: #667eea;
+  padding: 0.6rem 1.8rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.landingPageContainer nav .navlist div[role='button']:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.landingMainContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 5rem;
+  height: calc(100vh - 100px);
+}
+
+.landingMainContainer>div:nth-child(1) {
+  max-width: 600px;
+  animation: slideIn 0.8s ease-out;
+}
+
+.landingMainContainer>div:nth-child(1) h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.landingMainContainer>div:nth-child(1) p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.landingMainContainer>div:nth-child(1) div[role='button'] {
+  background: white;
+  color: #667eea;
+  width: fit-content;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.landingMainContainer>div:nth-child(1) div[role='button']:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.landingMainContainer>div:nth-child(1) div[role='button'] a {
+  text-decoration: none;
+  color: #667eea;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.landingMainContainer>div:nth-child(2) img {
+  height: 500px;
+  width: auto;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navBar h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.navBar p {
+  font-weight: 500;
+}
+
+.meetContainer {
+  display: flex;
+  padding: 3rem;
+  min-height: calc(100vh - 100px);
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.leftPanel {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.8s ease-out;
+}
+
+.leftPanel h2 {
+  color: #667eea;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.leftPanel > div > div {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.rightPanel {
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.rightPanel > img {
+  width: 400px;
+  height: auto;
+  border-radius: 20px;
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
