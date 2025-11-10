@@ -15,7 +15,16 @@ const io = connectToSocket(server);
 
 
 app.set("port", (process.env.PORT || 8000))
-app.use(cors());
+
+// CORS configuration - allow all origins for production
+// You can restrict this to your frontend URL if needed
+app.use(cors({
+    origin: process.env.FRONTEND_URL || "*",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 

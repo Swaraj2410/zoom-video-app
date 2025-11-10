@@ -58,10 +58,17 @@ export default function Authentication() {
                 setPassword("")
             }
         } catch (err) {
-
             console.log(err);
-            let message = (err.response.data.message);
-            setError(message);
+            // Handle network errors and API errors
+            let errorMessage = "An error occurred. Please try again.";
+            if (err.response && err.response.data && err.response.data.message) {
+                errorMessage = err.response.data.message;
+            } else if (err.message) {
+                errorMessage = err.message;
+            } else if (err.code === 'ERR_NETWORK' || err.code === 'ERR_CONNECTION_REFUSED') {
+                errorMessage = "Cannot connect to server. Please check your connection and ensure the backend is running.";
+            }
+            setError(errorMessage);
         }
     }
 
